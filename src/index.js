@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import App from './App';
+import HomePage from './pages/HomePage';
+import MoviesPage from './pages/MoviesPage';
+
 import 'modern-normalize/modern-normalize.css';
 import './index.css';
-import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
