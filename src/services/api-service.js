@@ -13,4 +13,13 @@ async function getTrendingMovies() {
   }
 }
 
-export default { getTrendingMovies };
+async function getMovieById(movieId) {
+  try {
+    const { data } = await axios.get(`movie/${movieId}?api_key=${API_KEY}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default { getTrendingMovies, getMovieById };
