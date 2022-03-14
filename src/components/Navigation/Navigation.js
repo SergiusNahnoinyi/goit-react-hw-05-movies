@@ -5,10 +5,20 @@ import styles from './Navigation.module.css';
 export default function Navigation() {
   return (
     <nav>
-      <NavLink end to="/" className={styles.link}>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? styles.activeLink : styles.link
+        }
+      >
         Home
       </NavLink>
-      <NavLink end to="/movies" className={styles.link}>
+      <NavLink
+        to="/movies"
+        className={({ isActive }) =>
+          isActive ? styles.activeLink : styles.link
+        }
+      >
         Movies
       </NavLink>
     </nav>
