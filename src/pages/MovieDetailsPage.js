@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
 
 import moviesApi from '../services/api-service';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
+  let navigate = useNavigate();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -13,8 +14,15 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      <button
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        Go back
+      </button>
       {movie && (
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', marginTop: '16px' }}>
           <img
             src={`https://image.tmdb.org/t/p/w300` + movie.poster_path}
             alt={movie.title}
