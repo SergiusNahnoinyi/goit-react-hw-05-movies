@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 
 import moviesApi from '../services/api-service';
 
@@ -29,6 +29,18 @@ export default function MovieDetailsPage() {
           </div>
         </div>
       )}
+      <hr />
+      <h4>Additional information</h4>
+      <ul>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <hr />
+      <Outlet />
     </>
   );
 }

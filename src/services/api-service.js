@@ -22,4 +22,26 @@ async function getMovieById(movieId) {
   }
 }
 
-export default { getTrendingMovies, getMovieById };
+async function getCastById(movieId) {
+  try {
+    const { data } = await axios.get(
+      `movie/${movieId}/credits?api_key=${API_KEY}`,
+    );
+    return data.cast;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function getReviewsById(movieId) {
+  try {
+    const { data } = await axios.get(
+      `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`,
+    );
+    return data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default { getTrendingMovies, getMovieById, getCastById, getReviewsById };
