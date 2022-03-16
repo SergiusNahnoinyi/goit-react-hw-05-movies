@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
@@ -44,4 +45,20 @@ async function getReviewsById(movieId) {
   }
 }
 
-export default { getTrendingMovies, getMovieById, getCastById, getReviewsById };
+async function getMoviesbySearchQuery(movieName) {
+  const url = `search/movie?api_key=${API_KEY}&query=${movieName}`;
+  try {
+    const { data } = await axios.get(url);
+    return data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default {
+  getTrendingMovies,
+  getMovieById,
+  getCastById,
+  getReviewsById,
+  getMoviesbySearchQuery,
+};
