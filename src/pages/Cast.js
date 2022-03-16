@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import moviesApi from '../services/api-service';
-// import { logo } from '../../public/logo192.png';
 
 export default function Cast() {
-  const { movieId } = useParams();
   const [cast, setCast] = useState(null);
+  const { movieId } = useParams();
 
   useEffect(() => {
     moviesApi.getCastById(movieId).then(setCast);

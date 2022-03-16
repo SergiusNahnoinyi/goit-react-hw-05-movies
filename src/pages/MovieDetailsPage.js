@@ -4,9 +4,9 @@ import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
 import moviesApi from '../services/api-service';
 
 export default function MovieDetailsPage() {
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   let navigate = useNavigate();
-  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     moviesApi.getMovieById(movieId).then(setMovie);
