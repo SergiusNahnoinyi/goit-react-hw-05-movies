@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 
@@ -11,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function MoviesPage() {
   const [movieName, setMovieName] = useState('');
   const [movies, setMovies] = useState(null);
+  let navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (!movieName) {
@@ -27,6 +30,7 @@ export default function MoviesPage() {
 
   const handleFormSubmit = query => {
     setMovieName(query);
+    navigate({ ...location, search: `query=${query}` });
   };
 
   return (
