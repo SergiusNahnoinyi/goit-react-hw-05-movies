@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/791.65e206af.chunk.js","mappings":"iMAAe,SAASA,IACtB,OAAO","sources":["pages/NotFoundPage.js"],"sourcesContent":["export default function NotFoundPage() {\n  return <h1>Ошибка 404! Страница не найдена!</h1>;\n}\n"],"names":["NotFoundPage"],"sourceRoot":""}
