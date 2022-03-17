@@ -16,7 +16,7 @@ export default function MovieDetailsPage() {
     <>
       <button
         onClick={() => {
-          navigate('/');
+          navigate(-1);
         }}
       >
         Go back
