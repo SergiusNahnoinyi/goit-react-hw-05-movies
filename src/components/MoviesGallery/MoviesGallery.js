@@ -15,12 +15,14 @@ export default function MoviesGallery({ movies }) {
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500` + movie.poster_path
-                    : 'https://raw.githubusercontent.com/SergiusNahnoinyi/goit-react-hw-05-movies/main/public/logo192.png'
+                    : 'https://raw.githubusercontent.com/SergiusNahnoinyi/goit-react-hw-05-movies/main/public/logo512.png'
                 }
                 alt={movie.title}
               />
               <h3 className={styles.Title}>{movie.title}</h3>
-              <p className={styles.Subtitle}>{movie.release_date}</p>
+              <p className={styles.Subtitle}>
+                {movie.release_date ? movie.release_date : 'Unknown'}
+              </p>
             </Link>
           </li>
         ))}
