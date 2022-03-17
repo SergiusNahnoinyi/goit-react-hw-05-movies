@@ -9,7 +9,7 @@ export default function MoviesGallery({ movies }) {
       {movies &&
         movies.map(movie => (
           <li key={movie.id} className={styles.Item}>
-            <Link to={`movies/${movie.id}`} className={styles.Link}>
+            <Link to={`/movies/${movie.id}`} className={styles.Link}>
               <img
                 className={styles.Image}
                 src={
