@@ -14,10 +14,11 @@ export default function MoviesPage() {
   const [movies, setMovies] = useState(null);
   let navigate = useNavigate();
   const location = useLocation();
+  const searchURL = new URLSearchParams(location.search).get('query');
 
   useEffect(() => {
     if (!movieName) {
-      return;
+      return setMovieName(searchURL);
     }
     moviesApi.getMoviesbySearchQuery(movieName).then(results => {
       if (results.length === 0) {
@@ -26,7 +27,7 @@ export default function MoviesPage() {
       }
       setMovies(results);
     });
-  }, [movieName]);
+  }, [movieName, searchURL]);
 
   const handleFormSubmit = query => {
     setMovieName(query);
