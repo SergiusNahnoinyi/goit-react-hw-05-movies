@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 
+import PropTypes from 'prop-types';
+
 import styles from './Searchbar.module.css';
 
 export default function Searchbar({ onSubmit }) {
@@ -41,3 +43,7 @@ export default function Searchbar({ onSubmit }) {
     </header>
   );
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

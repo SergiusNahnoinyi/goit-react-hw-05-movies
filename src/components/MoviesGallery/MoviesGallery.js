@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 export default function MoviesGallery({ movies }) {
   return (
     <ul>
@@ -22,3 +24,7 @@ export default function MoviesGallery({ movies }) {
     </ul>
   );
 }
+
+MoviesGallery.propTypes = {
+  movies: PropTypes.array,
+};
